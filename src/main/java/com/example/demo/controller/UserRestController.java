@@ -31,14 +31,12 @@ public class UserRestController {
 		try {
 			if(userService.checkLogin(user)) {
 				result = jwtService.generateTokenLogin(user.getUsername());
-				System.out.println(result);
 				httpStatus = HttpStatus.OK;
 			} else {
 				result = "Wrong userId and password";
 				httpStatus = HttpStatus.BAD_REQUEST;
 			} 
 		}catch(Exception ex) {
-				System.out.println("555555555555555555555");
 			result = "Server Error";
 			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
